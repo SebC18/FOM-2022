@@ -1,0 +1,18 @@
+{
+    "content": "Bienvenue sur l'API de l'application ResolverJsonServer Mock",
+    "self": {
+        "href": "http://localhost:8085/api/map"
+    },
+    "ravespecs": {
+        "href": "http://localhost:8085/api/fom/ravespecs",
+        "templated": true
+    },
+    "kaleidos": {
+        "href": "http://localhost:8085/api/fom/kaleidos",
+        "templated": true
+    },
+    "sunglasses": {
+        "href": "http://localhost:8085/api/fom/sunglasses",
+        "templated": true
+    }
+}

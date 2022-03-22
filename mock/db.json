@@ -1,0 +1,17 @@
+{
+  "ravespecs":{
+      "id": 1,
+      "title": "rave-specs",
+      "author": "typicode"
+  },
+  "kaleidos": {
+    "id": 2,
+    "body": "Kaleidos",
+    "postId": 1
+  },
+  "sunglasses": {
+    "id": 3,
+    "body": "sunglasses",
+    "postId": 1
+  }
+}
