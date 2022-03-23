@@ -78,6 +78,9 @@
               "browserTarget": "ResolverJsonServer:build:development"
             }
           },
+          "options": {
+            "port": 8000
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

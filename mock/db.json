@@ -1,17 +1,53 @@
 {
-  "ravespecs":{
+  "ravespecs": [
+    {
       "id": 1,
-      "title": "rave-specs",
-      "author": "typicode"
-  },
-  "kaleidos": {
-    "id": 2,
-    "body": "Kaleidos",
-    "postId": 1
-  },
-  "sunglasses": {
-    "id": 3,
-    "body": "sunglasses",
-    "postId": 1
-  }
+      "name": "HAKKEN - Black & Orange",
+      "price": 12.99
+    },
+    {
+      "id": 2,
+      "name": "HAKKEN - Black",
+      "price": 11.99
+    },
+    {
+      "id": 3,
+      "name": "Cat Eye - Black",
+      "price": 12.99
+    }
+  ],
+  "kaleidos": [
+    {
+      "id": 4,
+      "name": "Goggles - Rainbow",
+      "price": 19.99
+    },
+    {
+      "id": 5,
+      "name": "Goggles - Royal Gold",
+      "price": 20.99
+    },
+    {
+      "id": 6,
+      "name": "Vortex - Peace",
+      "price": 15.95
+    }
+  ],
+  "sunglasses": [
+    {
+      "id": 7,
+      "name": "Hex - Brown",
+      "price": 11.95
+    },
+    {
+      "id": 8,
+      "name": "Aviator - Amber Tint",
+      "price": 13.95
+    },
+    {
+      "id": 9,
+      "name": "Lennon - Cyan Tint",
+      "price": 11.95
+    }
+  ]
 }
