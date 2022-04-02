@@ -2,13 +2,15 @@ const express = require('express'),
       bodyParser = require('express'),
       jsonServer = require('json-server'),
       morgan = require('morgan'),
-      routes = require('./routes.js');
+      routes = require('./routes.js'),
+      cors = require('cors');
+
 
 const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cors());
 port = process.env.PORT || 8085;
 
 routes(app);
