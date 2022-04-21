@@ -1,7 +1,9 @@
 import { Glasses } from './models/glasses.model';
 import { RavespecsServiceService } from './services/ravespecs-service.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { KaleidosServiceService } from './services/kaleidos-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +13,14 @@ import { Observable } from 'rxjs';
 
 export class AppComponent implements OnInit{
   title = 'ResolverJsonServer';
-  raveSpecs$: Observable<Glasses[]> | undefined;
 
-  constructor(private raveSpecsService: RavespecsServiceService){
+
+
+  constructor(){
   }
 
   ngOnInit(){
-    this.raveSpecs$ = this.raveSpecsService.getRaveSpecs();
-    console.log('RavesSpecs :', this.raveSpecs$);
+    
   }
 
   

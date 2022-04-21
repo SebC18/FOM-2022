@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { CustomError } from './../models/custom-error.model';
 import { Glasses } from './../models/glasses.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
@@ -10,25 +9,21 @@ import { Scavenger } from '@wishtack/rx-scavenger';
 @Injectable({
   providedIn: 'root'
 })
-export class RavespecsServiceService {
+export class KaleidosServiceService {
   private _scavenger = new Scavenger(this);
-
-
-  private readonly ravespecsURL = 'http://localhost:8085/api/fom/ravespecs';
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   }
 
-  constructor(private httpClient: HttpClient) { 
-  }
- 
+  private readonly kaleidosURL = 'http://localhost:8085/api/fom/kaleidos';
+  constructor(private httpClient: HttpClient) { }
 
-  getRaveSpecs(): Observable<any> {
-    return this.httpClient.get<Glasses[]>(this.ravespecsURL, { responseType: "json" }).pipe(
+  getKaleidos(): Observable<any> {
+    return this.httpClient.get<Glasses[]>(this.kaleidosURL, { responseType: "json" }).pipe(
       catchError( err => this.handleError(err)),
       finalize(()=> {
-        console.log('Get RaveSpecs finished successful');
+        console.log('Get glasses finished');
       }),
       this._scavenger.collectByKey('count')) 
   }
@@ -39,12 +34,10 @@ export class RavespecsServiceService {
     switch(err.status) {
       case 400:
         error = new CustomError('400', err.message);
-        return EMPTY;
         break;
       case 404:
         error = new CustomError('404', err.message);
         break;
-        
       case 500:
         error = new CustomError('500', err.message);
         break;
