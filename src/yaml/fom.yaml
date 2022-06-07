@@ -1,0 +1,164 @@
+---
+openapi: 3.0.1
+info:
+  title: Open API FOM
+  description: Api to request the MySQL database of Frame of Mind
+  contact:
+    name: Capdeville Sébastien
+  version: 1.0.3
+servers:
+- url: http://localhost:3003
+paths:
+  /glasses:
+    get:
+      description: Retrieve all the glasses from the MySQL Database
+      responses:
+        "200":
+          description: Get Sucessful
+      servers:
+      - url: http://localhost:3003
+    post:
+      description: Create a new glasses object and save it into the MySQL Database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/glasses_body'
+            examples:
+              "0":
+                value: |-
+                  {
+                      "product_type":1,
+                      "collection":"Hakken Rave Specs",
+                      "product_name":"Black",
+                      "description":"A classic style with a new twist. Our HAKKEN glasses are amongst the most popular styles.",
+                      "price":10,
+                      "colour_frame":"Black",
+                      "height":5.0,
+                      "width":5.0,
+                      "length_of_temple":14.0,
+                      "lens_type":"Acid",
+                      "intensity":"Low"
+                  }
+      responses:
+        "201":
+          description: New glasses sucessfully created
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      servers:
+      - url: http://localhost:3003
+    servers:
+    - url: http://localhost:3003
+  /glasses/1:
+    put:
+      summary: Update an existing glasses corresponding to the id passed after the '/' in the URL (glasses/1 will update glasses with the id '1')
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/glasses_1_body'
+            examples:
+              "0":
+                value: |-
+                  {
+                   "id":1,
+                   "product_type":2,
+                   "collection":"HAKKEN",
+                   "product_name":"Rave Specs -  Black",
+                   "description":"A classic style with a new twist. \nOur HAKKEN glasses are amongst the most popular styles. \n\nHAKKEN specs can go with all outfits.\nIf you are unsure of what style to get then these are the best bet. \n\nOur HAKKEN frames are fitted with Acid lenses that will enter you into a psychedelic paradise. They separate light into the vibrant rainbow spectrum which makes any light show a visual masterpiece. Wear them during fireworks displays, light shows, festivals or even if you're just walking down the street at night.",
+                   "price":18,
+                   "colour_frame":"Black",
+                   "colour_lens":null,
+                   "height":"5.00",
+                   "width":"14.20",
+                   "length_of_temple":"14.00",
+                   "lens_type":"Acid",
+                   "intensity":"Low",
+                   "uv_protection":null
+                  }
+      responses:
+        "200":
+          description: Glasses sucessfully updated
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      servers:
+      - url: http://localhost:3003
+    servers:
+    - url: http://localhost:3003
+  /glasses/78:
+    delete:
+      description: Delete an existing glasses corresponding to the id passed after the '/' in the URL (glasses/1 will delete glasses with the id '1')
+      responses:
+        "200":
+          description: Glasses sucessfully deleted
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      servers:
+      - url: http://localhost:3003
+    servers:
+    - url: http://localhost:3003
+components:
+  schemas:
+    glasses_body:
+      type: object
+      properties:
+        intensity:
+          type: string
+        product_type:
+          type: integer
+        length_of_temple:
+          type: number
+        price:
+          type: integer
+        width:
+          type: number
+        description:
+          type: string
+        colour_frame:
+          type: string
+        lens_type:
+          type: string
+        collection:
+          type: string
+        product_name:
+          type: string
+        height:
+          type: number
+    glasses_1_body:
+      type: object
+      properties:
+        uv_protection: {}
+        colour_lens: {}
+        description:
+          type: string
+        lens_type:
+          type: string
+        collection:
+          type: string
+        product_name:
+          type: string
+        intensity:
+          type: string
+        product_type:
+          type: integer
+        length_of_temple:
+          type: string
+        price:
+          type: integer
+        width:
+          type: string
+        colour_frame:
+          type: string
+        id:
+          type: integer
+        height:
+          type: string
